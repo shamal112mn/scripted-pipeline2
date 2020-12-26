@@ -21,6 +21,9 @@ node {
         } 
         stage("Install unzip") {
             sh "ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@${ params.SSHNODE } yum install unzip -y"
-        }        
+        } 
+        stage("Install Ansible") {
+            sh "ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@${ params.SSHNODE } yum install ansible -y"
+        }       
     }
 }
