@@ -15,6 +15,12 @@ node {
         }
         stage("Install git") {
             sh "ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@${ params.SSHNODE } yum install git -y"
+        } 
+        stage("Install wget") {
+            sh "ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@${ params.SSHNODE } yum install wget -y"
+        } 
+        stage("Install unzip") {
+            sh "ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@${ params.SSHNODE } yum install unzip -y"
         }        
     }
 }
